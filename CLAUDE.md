@@ -42,6 +42,16 @@ A successful update returns HTTP 200 with an empty body.
 
 Plugins are under `/mnt/data-nvme/media-mgmt/tdarr/server/Tdarr/Plugins/FlowPlugins/CommunityFlowPlugins/` on hl15-beast. Use SSH to verify plugin names, versions, and input schemas before adding new plugin nodes to a flow.
 
-## Node Tags
+## Nodes
 
-The `hl15-beast` Tdarr node should be tagged `mapped` in the Node Options panel. Unmapped nodes (e.g. `crimbedroom`, `crimhtpc` — Windows machines) do not have direct filesystem access to the NAS media library, so the `replaceOriginalFile` plugin must only run on the mapped node. Use `tagsWorkerType` with `requiredNodeTags: mapped` to gate this step.
+Three nodes currently registered with the Tdarr server (verify with the `NodeJSONDB` cruddb query before assuming):
+
+- **hl15-beast** — Linux container alongside the server. Direct local filesystem access to `/media`. No GPU workers; primarily exists for direct-attached work.
+- **crimbedroom** — Linux + podman, RTX-class GPU. CIFS mounts `/var/mnt/hl15-{movies,shows}` → `/media/{Movies,Shows}` with `context="system_u:object_r:container_file_t:s0"` so SELinux lets the container read them.
+- **crimhtpc** — Windows 11 + RTX 4090. Reaches the library over UNC paths (`//hl15-beast.home.thecrimsontint.com/{movies,shows}`). All three are effectively "mapped" — the legacy `tagsWorkerType requiredNodeTags: mapped` gate is no longer needed and was removed in commit 30bf7e1.
+
+## Known Failure Modes
+
+**Windows long-path failures on mkvpropedit (crimhtpc).** Tdarr's bundled `mkvpropedit.exe` errors instantly with `'<path>' is not a Matroska file or it could not be found` on file paths >260 chars (4K Remuxes with long bracketed metadata in the filename: `[Hybrid][Remux-2160p][DV HDR10Plus][TrueHD Atmos 7.1][EN+...long subtitle list...]`). ffmpeg handles the same paths fine because it uses `\\?\` long-path APIs. Fix needs both the registry flag `HKLM\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled = 1` AND a `longPathAware` manifest in the bundled exe (MKVToolNix v51+ has it). When this fails the cosmetic stats-tag step kills an otherwise-successful transcode via `failFlow`.
+
+**`fl_cq_filesize_ratio` size-cancel.** The `liveSizeCompare` gate cancels the encode if the projected output exceeds this percentage of the input. Set to `300` to allow AV1 to grow already-efficient sources — we want a homogeneous AV1 end state more than we want size savings on every file. Lowering this back to ~95 will resurrect false-positive "Transcode error" entries on Venom-class files (1080p h264/hevc → AV1 grows ~150-260%).
