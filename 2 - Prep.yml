@@ -1358,6 +1358,60 @@
         "y": 1496.0
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Prep - Remove Dead Audio (channels=0)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "audio",
+        "propertyToCheck": "channels",
+        "valuesToRemove": "0",
+        "condition": "equals"
+      },
+      "id": "rmDeadA01",
+      "position": {
+        "x": 1878.5479097789666,
+        "y": 2751.156424321689
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Prep - Remove Dead Audio (channels=0)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "audio",
+        "propertyToCheck": "channels",
+        "valuesToRemove": "0",
+        "condition": "equals"
+      },
+      "id": "rmDeadA02",
+      "position": {
+        "x": 1125.7737294895069,
+        "y": 1097.4351016398653
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Prep - Remove Dead Audio (channels=0)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "audio",
+        "propertyToCheck": "channels",
+        "valuesToRemove": "0",
+        "condition": "equals"
+      },
+      "id": "rmDeadA03",
+      "position": {
+        "x": 1613.4854145315458,
+        "y": 2686.827699110581
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -1453,7 +1507,7 @@
       "id": "mhx-Z9yjc"
     },
     {
-      "source": "_d_3OOKXy",
+      "source": "rmDeadA02",
       "sourceHandle": "1",
       "target": "om49ib9os",
       "targetHandle": null,
@@ -1586,7 +1640,7 @@
       "id": "TtNF-4Ulg"
     },
     {
-      "source": "DrM_l7cfy",
+      "source": "rmDeadA03",
       "sourceHandle": "1",
       "target": "Kc5D-yATu",
       "targetHandle": null,
@@ -1614,7 +1668,7 @@
       "id": "cWCLM2Cx9"
     },
     {
-      "source": "Seo9IHIHX",
+      "source": "rmDeadA01",
       "sourceHandle": "1",
       "target": "qnVKFGF7o",
       "targetHandle": null,
@@ -1941,6 +1995,27 @@
       "target": "U-F59Ok-h",
       "targetHandle": null,
       "id": "cby00053"
+    },
+    {
+      "source": "Seo9IHIHX",
+      "sourceHandle": "1",
+      "target": "rmDeadA01",
+      "targetHandle": null,
+      "id": "eDeadA01"
+    },
+    {
+      "source": "_d_3OOKXy",
+      "sourceHandle": "1",
+      "target": "rmDeadA02",
+      "targetHandle": null,
+      "id": "eDeadA02"
+    },
+    {
+      "source": "DrM_l7cfy",
+      "sourceHandle": "1",
+      "target": "rmDeadA03",
+      "targetHandle": null,
+      "id": "eDeadA03"
     }
   ]
 }

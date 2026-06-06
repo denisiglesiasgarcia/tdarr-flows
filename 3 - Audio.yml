@@ -1834,6 +1834,24 @@
         "y": 1609.5077674862482
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Audio - Remove Dead Audio (channels=0)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "audio",
+        "propertyToCheck": "channels",
+        "valuesToRemove": "0",
+        "condition": "equals"
+      },
+      "id": "rmDeadA04",
+      "position": {
+        "x": 86.60614216892682,
+        "y": 2032.5853723285331
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -1985,7 +2003,7 @@
       "id": "owWCbUCuX"
     },
     {
-      "source": "AVOGHm5kI",
+      "source": "rmDeadA04",
       "sourceHandle": "1",
       "target": "gdq5cqEJ1",
       "targetHandle": null,
@@ -2879,6 +2897,13 @@
       "target": "M9FxCpocJ",
       "targetHandle": null,
       "id": "cby00202"
+    },
+    {
+      "source": "AVOGHm5kI",
+      "sourceHandle": "1",
+      "target": "rmDeadA04",
+      "targetHandle": null,
+      "id": "eDeadA04"
     }
   ]
 }

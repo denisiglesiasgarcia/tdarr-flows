@@ -3708,6 +3708,42 @@
         "y": 1724.1842451114394
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Video - Remove Dead Audio (channels=0)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "audio",
+        "propertyToCheck": "channels",
+        "valuesToRemove": "0",
+        "condition": "equals"
+      },
+      "id": "rmDeadA05",
+      "position": {
+        "x": 1350.8310247736804,
+        "y": -2893.676727065127
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video - Remove Dead Audio (channels=0)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "audio",
+        "propertyToCheck": "channels",
+        "valuesToRemove": "0",
+        "condition": "equals"
+      },
+      "id": "rmDeadA06",
+      "position": {
+        "x": 2260.0,
+        "y": -540.0
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -4447,7 +4483,7 @@
       "id": "bsxuHkZlc"
     },
     {
-      "source": "CRWm2FTTc",
+      "source": "rmDeadA05",
       "sourceHandle": "1",
       "target": "2YrneglXQ",
       "targetHandle": null,
@@ -5112,7 +5148,7 @@
       "id": "DV_e_dv_check_to_start"
     },
     {
-      "source": "DV_cmd_start",
+      "source": "rmDeadA06",
       "sourceHandle": "1",
       "target": "DV_copy_video",
       "targetHandle": null,
@@ -5775,6 +5811,20 @@
       "target": "K_Z-TiFwk",
       "targetHandle": null,
       "id": "cby00143"
+    },
+    {
+      "source": "CRWm2FTTc",
+      "sourceHandle": "1",
+      "target": "rmDeadA05",
+      "targetHandle": null,
+      "id": "eDeadA05"
+    },
+    {
+      "source": "DV_cmd_start",
+      "sourceHandle": "1",
+      "target": "rmDeadA06",
+      "targetHandle": null,
+      "id": "eDeadA06"
     }
   ]
 }
