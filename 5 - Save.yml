@@ -743,6 +743,19 @@
         "y": 2560.0
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Save File - Output Failed Quality Gate -> Fail (zero-touch, was Review) 🚨",
+      "sourceRepo": "Community",
+      "pluginName": "failFlow",
+      "version": "1.0.0",
+      "id": "failQGate1",
+      "position": {
+        "x": 1301.31260152972,
+        "y": 1761.2283978477408
+      },
+      "fpEnabled": true,
+      "inputsDB": {}
     }
   ],
   "flowEdges": [
@@ -861,21 +874,21 @@
     {
       "source": "VfgJdUHHI",
       "sourceHandle": "1",
-      "target": "ZOw6a-NGX",
+      "target": "failQGate1",
       "targetHandle": null,
       "id": "cby00144"
     },
     {
       "source": "cs95FXJ6K",
       "sourceHandle": "1",
-      "target": "ZOw6a-NGX",
+      "target": "failQGate1",
       "targetHandle": null,
       "id": "cby00145"
     },
     {
       "source": "78CtQZMV7",
       "sourceHandle": "1",
-      "target": "ZOw6a-NGX",
+      "target": "failQGate1",
       "targetHandle": null,
       "id": "cby00146"
     },
@@ -910,7 +923,7 @@
     {
       "source": "HcYL5jc8o",
       "sourceHandle": "1",
-      "target": "ZOw6a-NGX",
+      "target": "failQGate1",
       "targetHandle": null,
       "id": "cby00152"
     },
