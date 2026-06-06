@@ -743,6 +743,34 @@
         "y": 2560.0
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Save File - Stream Preservation Check (audio+video survived) 🛡️",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => { const { spawnSync } = require('child_process'); const file = args.inputFileObj.file || args.inputFileObj._id || ''; let ok = true; const dbg = []; try {  const base = args.ffmpegPath || '/usr/local/bin/tdarr-ffmpeg';  const fp = base.replace(/ffmpeg$/, 'ffprobe');  const r = spawnSync(fp, ['-v','error','-show_entries','stream=codec_type,disposition','-of','json', file], { timeout: 60000, encoding: 'utf8' });  if (!r.error && r.stdout) {   const streams = (JSON.parse(r.stdout).streams) || [];   let aud=0, vid=0;   for (const s of streams) { if (s.codec_type==='audio') aud++; else if (s.codec_type==='video' && !((s.disposition||{}).attached_pic)) vid++; }   dbg.push('aud='+aud+' vid='+vid);   if (aud < 1 || vid < 1) ok = false;  } else { dbg.push('probe_unavailable_pass'); } } catch(e) { dbg.push('ex_pass:'+e.message); } console.log('streamPreserveCheck: ok='+ok+' | '+dbg.join(' | ')); return { outputFileObj: args.inputFileObj, outputNumber: ok ? 1 : 2, variables: args.variables };};"
+      },
+      "id": "strmChk01",
+      "position": {
+        "x": -200,
+        "y": -200
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Save File - Fail Stream Preservation 🚨🚨",
+      "sourceRepo": "Community",
+      "pluginName": "failFlow",
+      "version": "1.0.0",
+      "inputsDB": {},
+      "id": "strmFail01",
+      "position": {
+        "x": -200,
+        "y": -60
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -931,7 +959,7 @@
     {
       "source": "qKbwt5GM1",
       "sourceHandle": "1",
-      "target": "HcYL5jc8o",
+      "target": "strmChk01",
       "targetHandle": null,
       "id": "cby00155"
     },
@@ -1018,6 +1046,20 @@
       "target": "ntfyPlxJf1",
       "targetHandle": null,
       "id": "cby00167"
+    },
+    {
+      "source": "strmChk01",
+      "sourceHandle": "1",
+      "target": "HcYL5jc8o",
+      "targetHandle": null,
+      "id": "strmE1"
+    },
+    {
+      "source": "strmChk01",
+      "sourceHandle": "2",
+      "target": "strmFail01",
+      "targetHandle": null,
+      "id": "strmE2"
     }
   ]
 }
