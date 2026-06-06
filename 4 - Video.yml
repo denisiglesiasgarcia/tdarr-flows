@@ -3744,6 +3744,37 @@
         "y": -540.0
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Video - Detect non-420 pix_fmt 🎨",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => { const streams = (args.inputFileObj.ffProbeData || {}).streams || []; const imgs = ['png','mjpeg','mjpegb','bmp','gif']; const v = streams.find(function(s){ return s.codec_type==='video' && !(s.disposition && s.disposition.attached_pic) && imgs.indexOf(String(s.codec_name||'').toLowerCase())<0; }); const pf = v ? String(v.pix_fmt||'').toLowerCase() : ''; const is420 = pf.indexOf('420')>=0; const nonChroma = (pf.indexOf('444')>=0 || pf.indexOf('422')>=0 || pf.indexOf('440')>=0 || pf.indexOf('411')>=0 || pf.indexOf('gbr')>=0 || pf.indexOf('rgb')>=0); let fix=''; if (pf && !is420 && nonChroma){ const hi = pf.indexOf('10')>=0 || pf.indexOf('12')>=0 || pf.indexOf('16')>=0; fix = hi ? '-pix_fmt p010le' : '-pix_fmt yuv420p'; } if(!args.variables.user){ args.variables.user = {}; } args.variables.user.fl_pix_fmt = fix; args.jobLog('pixFmtFix: src_pix_fmt='+pf+' inject=\"'+fix+'\"'); return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables }; };"
+      },
+      "id": "pixFmtFn01",
+      "position": {
+        "x": 409.59,
+        "y": 1620.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video - Convert 4:4:4/4:2:2 to 4:2:0 (pix_fmt) 📼",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandCustomArguments",
+      "version": "1.0.0",
+      "inputsDB": {
+        "inputArguments": "",
+        "outputArguments": "{{{args.variables.user.fl_pix_fmt}}}"
+      },
+      "id": "pixFmtArg01",
+      "position": {
+        "x": 409.59,
+        "y": 1680.0
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -4149,7 +4180,7 @@
     {
       "source": "9pBMF3lxO",
       "sourceHandle": "1",
-      "target": "rmCovArt01",
+      "target": "pixFmtFn01",
       "targetHandle": null,
       "id": "ffMRo4vV6"
     },
@@ -5825,6 +5856,20 @@
       "target": "rmDeadA06",
       "targetHandle": null,
       "id": "eDeadA06"
+    },
+    {
+      "source": "pixFmtFn01",
+      "sourceHandle": "1",
+      "target": "pixFmtArg01",
+      "targetHandle": null,
+      "id": "pixFmtE1"
+    },
+    {
+      "source": "pixFmtArg01",
+      "sourceHandle": "1",
+      "target": "rmCovArt01",
+      "targetHandle": null,
+      "id": "pixFmtE2"
     }
   ]
 }
