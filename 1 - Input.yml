@@ -1188,6 +1188,21 @@
         "y": -1619.0
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Input - Skip DV / 4K (leave as-is, frees fleet) ⏭️",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => { const obj = args.inputFileObj || {}; const f = String(obj.file || obj._id || '').toLowerCase(); const fpd = JSON.stringify(obj.ffProbeData || {}).toLowerCase(); const dvFile = ['[dv ','[dv]','[dv-','dolby vision','dv hdr','dovi','dvhe','dvh1'].some(function(k){return f.includes(k);}); const dvProbe = ['dovi','dolby vision','dvhe','dvh1','dv_profile','dovi configuration'].some(function(k){return fpd.includes(k);}); const isDV = dvFile || dvProbe; const res = String(obj.video_resolution || '').toLowerCase(); let w=0,h=0; const streams=((obj.ffProbeData||{}).streams)||[]; for (const s of streams){ if(s.codec_type==='video'){ if((s.width||0)>w)w=s.width; if((s.height||0)>h)h=s.height; } } const is4K = res==='4kuhd' || res==='dci4k' || w>=3840 || h>=2160; const skip = isDV || is4K; args.jobLog('skipDV4K: skip='+skip+' isDV='+isDV+' is4K='+is4K+' res='+res+' w='+w); return { outputFileObj: args.inputFileObj, outputNumber: skip ? 1 : 2, variables: args.variables };};"
+      },
+      "id": "skipDV4K01",
+      "position": {
+        "x": 553.1171723597192,
+        "y": -1789.1325601419335
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -1201,7 +1216,7 @@
     {
       "source": "OO_HK73Ms",
       "sourceHandle": "1",
-      "target": "chkSz100MB",
+      "target": "skipDV4K01",
       "targetHandle": null,
       "id": "A0uJHeXoz"
     },
@@ -1743,6 +1758,13 @@
       "target": "c4dzBz_bo",
       "targetHandle": null,
       "id": "cby00026"
+    },
+    {
+      "source": "skipDV4K01",
+      "sourceHandle": "2",
+      "target": "chkSz100MB",
+      "targetHandle": null,
+      "id": "sdv4kE1"
     }
   ]
 }
