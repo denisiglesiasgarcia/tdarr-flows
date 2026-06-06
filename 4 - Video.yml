@@ -2801,7 +2801,7 @@
       "version": "1.0.0",
       "inputsDB": {
         "inputArguments": "",
-        "outputArguments": "{{{args.variables.user.fl_ffmpeg_main}}}"
+        "outputArguments": "{{{args.variables.user.fl_ffmpeg_main}}} -max_muxing_queue_size 9999"
       },
       "id": "9pBMF3lxO",
       "position": {
@@ -3309,18 +3309,6 @@
       "fpEnabled": true
     },
     {
-      "name": "Video - Start ffmpeg command - Encode 📼",
-      "sourceRepo": "Community",
-      "pluginName": "ffmpegCommandStart",
-      "version": "1.0.0",
-      "id": "CRWm2FTTc",
-      "position": {
-        "x": 1290.8310247736804,
-        "y": -2983.676727065127
-      },
-      "fpEnabled": true
-    },
-    {
       "name": "Video - Check Video Resolution 🔍",
       "sourceRepo": "Community",
       "pluginName": "checkVideoResolution",
@@ -3652,25 +3640,13 @@
       "fpEnabled": true
     },
     {
-      "name": "Video - DV Begin ffmpeg Command 📼",
-      "sourceRepo": "Community",
-      "pluginName": "ffmpegCommandStart",
-      "version": "1.0.0",
-      "id": "DV_cmd_start",
-      "position": {
-        "x": 2200.0,
-        "y": -630.0
-      },
-      "fpEnabled": true
-    },
-    {
       "name": "Video - DV Copy Stream 🎯",
       "sourceRepo": "Community",
       "pluginName": "ffmpegCommandCustomArguments",
       "version": "1.0.0",
       "inputsDB": {
         "inputArguments": "",
-        "outputArguments": "-c:v copy -map_metadata 0"
+        "outputArguments": "-c:v copy -map_metadata 0 -max_muxing_queue_size 9999"
       },
       "id": "DV_copy_video",
       "position": {
@@ -3892,13 +3868,6 @@
       "target": "mZGhkFE_A",
       "targetHandle": null,
       "id": "dFQnjOqQF"
-    },
-    {
-      "source": "EfDEzbZEY",
-      "sourceHandle": "1",
-      "target": "CRWm2FTTc",
-      "targetHandle": null,
-      "id": "cHlbRdoyl"
     },
     {
       "source": "V8F6F-I1d",
@@ -4384,13 +4353,6 @@
       "id": "q_BS7Fbwi"
     },
     {
-      "source": "zS_dE8Dx2",
-      "sourceHandle": "1",
-      "target": "CRWm2FTTc",
-      "targetHandle": null,
-      "id": "Ibh7sCydi"
-    },
-    {
       "source": "vUvK8EmVv",
       "sourceHandle": "1",
       "target": "zS_dE8Dx2",
@@ -4445,13 +4407,6 @@
       "target": "hFo4ZDW0g",
       "targetHandle": null,
       "id": "bsxuHkZlc"
-    },
-    {
-      "source": "CRWm2FTTc",
-      "sourceHandle": "1",
-      "target": "2YrneglXQ",
-      "targetHandle": null,
-      "id": "iOzNJfG0O"
     },
     {
       "source": "2YrneglXQ",
@@ -5103,20 +5058,6 @@
       "target": "40ui-45u1",
       "targetHandle": null,
       "id": "DV_e_cq_to_dv_check"
-    },
-    {
-      "source": "DV_check_video",
-      "sourceHandle": "1",
-      "target": "DV_cmd_start",
-      "targetHandle": null,
-      "id": "DV_e_dv_check_to_start"
-    },
-    {
-      "source": "DV_cmd_start",
-      "sourceHandle": "1",
-      "target": "DV_copy_video",
-      "targetHandle": null,
-      "id": "DV_e_start_to_copy"
     },
     {
       "source": "DV_copy_video",
@@ -5775,6 +5716,27 @@
       "target": "K_Z-TiFwk",
       "targetHandle": null,
       "id": "cby00143"
+    },
+    {
+      "source": "EfDEzbZEY",
+      "sourceHandle": "1",
+      "target": "2YrneglXQ",
+      "targetHandle": null,
+      "id": "mrg292"
+    },
+    {
+      "source": "zS_dE8Dx2",
+      "sourceHandle": "1",
+      "target": "2YrneglXQ",
+      "targetHandle": null,
+      "id": "mrg293"
+    },
+    {
+      "source": "DV_check_video",
+      "sourceHandle": "1",
+      "target": "DV_copy_video",
+      "targetHandle": null,
+      "id": "mrg292"
     }
   ]
 }
