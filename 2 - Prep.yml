@@ -1412,6 +1412,60 @@
         "y": 2686.827699110581
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Prep - Remove unmuxable subs (unknown/mov_text)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "subtitle",
+        "propertyToCheck": "codec_name",
+        "valuesToRemove": "unknown,mov_text",
+        "condition": "equals"
+      },
+      "id": "rmSubUnk01",
+      "position": {
+        "x": 1918.5479097789666,
+        "y": 2841.156424321689
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Prep - Remove unmuxable subs (unknown/mov_text)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "subtitle",
+        "propertyToCheck": "codec_name",
+        "valuesToRemove": "unknown,mov_text",
+        "condition": "equals"
+      },
+      "id": "rmSubUnk02",
+      "position": {
+        "x": 1165.7737294895069,
+        "y": 1187.4351016398653
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Prep - Remove unmuxable subs (unknown/mov_text)",
+      "sourceRepo": "Community",
+      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "version": "1.0.0",
+      "inputsDB": {
+        "codecType": "subtitle",
+        "propertyToCheck": "codec_name",
+        "valuesToRemove": "unknown,mov_text",
+        "condition": "equals"
+      },
+      "id": "rmSubUnk03",
+      "position": {
+        "x": 1653.4854145315458,
+        "y": 2776.827699110581
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -1509,7 +1563,7 @@
     {
       "source": "rmDeadA02",
       "sourceHandle": "1",
-      "target": "om49ib9os",
+      "target": "rmSubUnk02",
       "targetHandle": null,
       "id": "dFvILtoaZ"
     },
@@ -1642,7 +1696,7 @@
     {
       "source": "rmDeadA03",
       "sourceHandle": "1",
-      "target": "Kc5D-yATu",
+      "target": "rmSubUnk03",
       "targetHandle": null,
       "id": "SDOazpJ4v"
     },
@@ -1670,7 +1724,7 @@
     {
       "source": "rmDeadA01",
       "sourceHandle": "1",
-      "target": "qnVKFGF7o",
+      "target": "rmSubUnk01",
       "targetHandle": null,
       "id": "hc_K_cvo_"
     },
@@ -2016,6 +2070,27 @@
       "target": "rmDeadA03",
       "targetHandle": null,
       "id": "eDeadA03"
+    },
+    {
+      "source": "rmSubUnk01",
+      "sourceHandle": "1",
+      "target": "qnVKFGF7o",
+      "targetHandle": null,
+      "id": "rmSubE01"
+    },
+    {
+      "source": "rmSubUnk02",
+      "sourceHandle": "1",
+      "target": "om49ib9os",
+      "targetHandle": null,
+      "id": "rmSubE02"
+    },
+    {
+      "source": "rmSubUnk03",
+      "sourceHandle": "1",
+      "target": "Kc5D-yATu",
+      "targetHandle": null,
+      "id": "rmSubE03"
     }
   ]
 }
