@@ -835,7 +835,7 @@
       "version": "1.0.0",
       "inputsDB": {
         "variable": "fl_min_duration_limit",
-        "value": "99.5"
+        "value": "90"
       },
       "id": "3sV69vJNq",
       "position": {
