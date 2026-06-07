@@ -3777,21 +3777,6 @@
       "fpEnabled": true
     },
     {
-      "name": "Video - Inject video BitRate if missing (fixes checkVideoBitrate) 🧮",
-      "sourceRepo": "Community",
-      "pluginName": "customFunction",
-      "version": "1.0.0",
-      "inputsDB": {
-        "code": "module.exports = async (args) => { const fileObj = args.inputFileObj || {}; const mi = fileObj.mediaInfo || {}; const tracks = mi.track || []; const num = function(x){ const n = Number(x); return (isFinite(n) && n>0) ? n : 0; }; const ty = function(t){ return String((t||{})['@type']||'').toLowerCase(); }; const vids = tracks.filter(function(t){ return ty(t)==='video'; }); const hasBR = vids.some(function(t){ return num(t.BitRate) > 0; }); if (vids.length && !hasBR) { const fp = fileObj.ffProbeData || {}; const fmt = fp.format || {}; const gen = tracks.find(function(t){ return ty(t)==='general'; }) || {}; let overall = num(gen.OverallBitRate) || num(fmt.bit_rate); const dur = num(gen.Duration) || num(fmt.duration); const size = num(gen.FileSize) || num(fmt.size); if (!overall && size && dur) { overall = Math.floor(size*8/dur); } const audioTotal = tracks.filter(function(t){ return ty(t)==='audio'; }).reduce(function(a,t){ return a + num(t.BitRate); }, 0); let vbr = overall - audioTotal; if (!(vbr > 0)) { vbr = overall > 0 ? Math.floor(overall*0.92) : 0; } if (vbr > 0) { vids.forEach(function(t){ if (!(num(t.BitRate) > 0)) { t.BitRate = String(vbr); } }); args.jobLog('bitrateInject: video BitRate set to ' + vbr + ' (overall=' + overall + ' audio=' + audioTotal + ')'); } else { args.jobLog('bitrateInject: could not compute bitrate (overall=0); leaving unset'); } } return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables }; };"
-      },
-      "id": "brInject01",
-      "position": {
-        "x": -220.0,
-        "y": 250.0
-      },
-      "fpEnabled": true
-    },
-    {
       "name": "Video - low_bitrate_skip? (cq came out bigger) 🔍",
       "sourceRepo": "Community",
       "pluginName": "checkFlowVariable",
@@ -4553,7 +4538,7 @@
     {
       "source": "7cKHQFNya",
       "sourceHandle": "2",
-      "target": "brInject01",
+      "target": "hFo4ZDW0g",
       "targetHandle": null,
       "id": "bsxuHkZlc"
     },
@@ -5914,13 +5899,6 @@
       "target": "rmCovArt01",
       "targetHandle": null,
       "id": "pixFmtE2"
-    },
-    {
-      "source": "brInject01",
-      "sourceHandle": "1",
-      "target": "hFo4ZDW0g",
-      "targetHandle": null,
-      "id": "brInjE1"
     },
     {
       "source": "lowBrSkipChk",
