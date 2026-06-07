@@ -3790,6 +3790,35 @@
         "y": 250.0
       },
       "fpEnabled": true
+    },
+    {
+      "name": "Video - low_bitrate_skip? (cq came out bigger) 🔍",
+      "sourceRepo": "Community",
+      "pluginName": "checkFlowVariable",
+      "version": "1.0.0",
+      "inputsDB": {
+        "variable": "{{{args.variables.user.low_bitrate_skip}}}",
+        "value": "true"
+      },
+      "id": "lowBrSkipChk",
+      "position": {
+        "x": 150.0,
+        "y": 2120.0
+      },
+      "fpEnabled": true
+    },
+    {
+      "name": "Video - low_bitrate_skip: av1 not smaller, KEEP ORIGINAL (skip, not fail) ✅",
+      "sourceRepo": "Community",
+      "pluginName": "comment",
+      "version": "1.0.0",
+      "inputsDB": null,
+      "id": "lowBrSkipEnd",
+      "position": {
+        "x": -120.0,
+        "y": 2230.0
+      },
+      "fpEnabled": true
     }
   ],
   "flowEdges": [
@@ -3817,7 +3846,7 @@
     {
       "source": "CX0eeir2X",
       "sourceHandle": "1",
-      "target": "MDD_GBBGX",
+      "target": "lowBrSkipChk",
       "targetHandle": null,
       "id": "lgrgoNsxL"
     },
@@ -5892,6 +5921,20 @@
       "target": "hFo4ZDW0g",
       "targetHandle": null,
       "id": "brInjE1"
+    },
+    {
+      "source": "lowBrSkipChk",
+      "sourceHandle": "2",
+      "target": "MDD_GBBGX",
+      "targetHandle": null,
+      "id": "lowBrE1"
+    },
+    {
+      "source": "lowBrSkipChk",
+      "sourceHandle": "1",
+      "target": "lowBrSkipEnd",
+      "targetHandle": null,
+      "id": "lowBrE2"
     }
   ]
 }
