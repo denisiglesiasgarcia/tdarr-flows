@@ -1414,15 +1414,12 @@
       "fpEnabled": true
     },
     {
-      "name": "Prep - Remove unmuxable subs (unknown/mov_text)",
+      "name": "Prep - Remove unmuxable subs (no/unknown codec_name, mov_text)",
       "sourceRepo": "Community",
-      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "pluginName": "customFunction",
       "version": "1.0.0",
       "inputsDB": {
-        "codecType": "subtitle",
-        "propertyToCheck": "codec_name",
-        "valuesToRemove": "unknown,mov_text",
-        "condition": "equals"
+        "code": "module.exports = async (args) => { const fc = args.variables && args.variables.ffmpegCommand; if (fc && Array.isArray(fc.streams)) { fc.streams.forEach(function(s){ if (s && s.codec_type === 'subtitle') { const cn = String(s.codec_name || '').toLowerCase().trim(); if (!cn || cn === 'unknown' || cn === 'mov_text') { s.removed = true; args.jobLog('rmSub: removed unmuxable subtitle idx '+s.index+' codec_name=\"'+cn+'\"'); } } }); } return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables }; };"
       },
       "id": "rmSubUnk01",
       "position": {
@@ -1432,15 +1429,12 @@
       "fpEnabled": true
     },
     {
-      "name": "Prep - Remove unmuxable subs (unknown/mov_text)",
+      "name": "Prep - Remove unmuxable subs (no/unknown codec_name, mov_text)",
       "sourceRepo": "Community",
-      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "pluginName": "customFunction",
       "version": "1.0.0",
       "inputsDB": {
-        "codecType": "subtitle",
-        "propertyToCheck": "codec_name",
-        "valuesToRemove": "unknown,mov_text",
-        "condition": "equals"
+        "code": "module.exports = async (args) => { const fc = args.variables && args.variables.ffmpegCommand; if (fc && Array.isArray(fc.streams)) { fc.streams.forEach(function(s){ if (s && s.codec_type === 'subtitle') { const cn = String(s.codec_name || '').toLowerCase().trim(); if (!cn || cn === 'unknown' || cn === 'mov_text') { s.removed = true; args.jobLog('rmSub: removed unmuxable subtitle idx '+s.index+' codec_name=\"'+cn+'\"'); } } }); } return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables }; };"
       },
       "id": "rmSubUnk02",
       "position": {
@@ -1450,15 +1444,12 @@
       "fpEnabled": true
     },
     {
-      "name": "Prep - Remove unmuxable subs (unknown/mov_text)",
+      "name": "Prep - Remove unmuxable subs (no/unknown codec_name, mov_text)",
       "sourceRepo": "Community",
-      "pluginName": "ffmpegCommandRemoveStreamByProperty",
+      "pluginName": "customFunction",
       "version": "1.0.0",
       "inputsDB": {
-        "codecType": "subtitle",
-        "propertyToCheck": "codec_name",
-        "valuesToRemove": "unknown,mov_text",
-        "condition": "equals"
+        "code": "module.exports = async (args) => { const fc = args.variables && args.variables.ffmpegCommand; if (fc && Array.isArray(fc.streams)) { fc.streams.forEach(function(s){ if (s && s.codec_type === 'subtitle') { const cn = String(s.codec_name || '').toLowerCase().trim(); if (!cn || cn === 'unknown' || cn === 'mov_text') { s.removed = true; args.jobLog('rmSub: removed unmuxable subtitle idx '+s.index+' codec_name=\"'+cn+'\"'); } } }); } return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables }; };"
       },
       "id": "rmSubUnk03",
       "position": {
