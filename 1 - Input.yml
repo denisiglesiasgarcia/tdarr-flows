@@ -1003,6 +1003,21 @@
       "fpEnabled": true
     },
     {
+      "name": "Input File - Check Node Write Access ⏳",
+      "sourceRepo": "Community",
+      "pluginName": "customFunction",
+      "version": "1.0.0",
+      "inputsDB": {
+        "code": "module.exports = async (args) => { const fs = require('fs'); const obj = args.inputFileObj || {}; const file = obj._id || obj.file; args.jobLog('Checking node write access to original file: ' + file); try { const fd = fs.openSync(file, 'r+'); fs.closeSync(fd); args.jobLog('Write access OK: node can write the original file.'); } catch (err) { let who = 'unknown'; try { who = process.getuid() + ':' + process.getgid(); } catch (e) {} args.jobLog('FAIL: original file is NOT writable by this Tdarr node (' + err.code + '); node uid:gid=' + who + '; file=' + file + '. Fix ownership/permissions so the node can write it, then re-queue.'); throw new Error('Original file not writable by Tdarr node (' + err.code + '): ' + file); } return { outputFileObj: args.inputFileObj, outputNumber: 1, variables: args.variables }; };"
+      },
+      "id": "chkWrite01",
+      "position": {
+        "x": 408.0,
+        "y": -1645.0
+      },
+      "fpEnabled": true
+    },
+    {
       "name": "Input File - Fail Permissions or File Error 🚨🚨",
       "sourceRepo": "Community",
       "pluginName": "failFlow",
@@ -1216,7 +1231,7 @@
     {
       "source": "OO_HK73Ms",
       "sourceHandle": "1",
-      "target": "skipDV4K01",
+      "target": "chkWrite01",
       "targetHandle": null,
       "id": "A0uJHeXoz"
     },
@@ -1765,6 +1780,20 @@
       "target": "chkSz100MB",
       "targetHandle": null,
       "id": "sdv4kE1"
+    },
+    {
+      "source": "chkWrite01",
+      "sourceHandle": "1",
+      "target": "skipDV4K01",
+      "targetHandle": null,
+      "id": "chkWriteOK1"
+    },
+    {
+      "source": "chkWrite01",
+      "sourceHandle": "err1",
+      "target": "rsJ4Znt-F",
+      "targetHandle": null,
+      "id": "chkWriteErr1"
     }
   ]
 }
