@@ -10,13 +10,13 @@ Tdarr runs on `hl15-beast`, accessible via `ssh root@hl15-beast` and at `https:/
 
 ## Applying Flow Updates
 
-**Do not ask the user to reimport flows manually.** After editing a flow file, apply it directly via the Tdarr cruddb API:
+**Do not ask the user to reimport flows manually.** After editing a flow file, apply it directly via the Tdarr cruddb API. **Auth is ON** — every cruddb request needs the shared `x-api-key` header or the server returns `401 {"message":"No auth token provided"}`. Set `$KEY` to that shared key (its stores and rotation are documented under "Tdarr server auth is ON" below); the examples assume `$KEY` is exported.
 
 ```bash
 # Update an existing flow (replace <ID> with the flow's _id field)
 FLOW=$(cat 'path/to/flow.yml') && \
 curl -sk -X POST "https://tdarr.nas.home.thecrimsontint.com/api/v2/cruddb" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: application/json" -H "x-api-key: $KEY" \
   -d "{\"data\":{\"collection\":\"FlowsJSONDB\",\"mode\":\"update\",\"docID\":\"<ID>\",\"obj\":$FLOW}}"
 ```
 
@@ -28,7 +28,7 @@ node -e "const d=JSON.parse(require('fs').readFileSync('path/to/flow.yml','utf8'
 To verify the update was applied:
 ```bash
 curl -sk -X POST "https://tdarr.nas.home.thecrimsontint.com/api/v2/cruddb" \
-  -H "Content-Type: application/json" \
+  -H "Content-Type: application/json" -H "x-api-key: $KEY" \
   -d '{"data":{"collection":"FlowsJSONDB","mode":"getAll"}}' | python3 -c "
 import sys, json
 for f in json.load(sys.stdin):
@@ -36,7 +36,7 @@ for f in json.load(sys.stdin):
 "
 ```
 
-A successful update returns HTTP 200 with an empty body.
+A successful update returns HTTP 200 with an empty body. **Prefer patching the live flow object** (fetch via `getAll`, splice your node/edge changes into it) over overwriting with the repo file, so live-only runtime fields (`priority`, `isUiLocked`) are preserved.
 
 ## Plugin Directory
 
@@ -53,6 +53,8 @@ Three nodes currently registered with the Tdarr server (verify with the `NodeJSO
 ## Known Failure Modes
 
 **Windows long-path failures on mkvpropedit (crimhtpc).** Tdarr's bundled `mkvpropedit.exe` errors instantly with `'<path>' is not a Matroska file or it could not be found` on file paths >260 chars (4K Remuxes with long bracketed metadata in the filename: `[Hybrid][Remux-2160p][DV HDR10Plus][TrueHD Atmos 7.1][EN+...long subtitle list...]`). ffmpeg handles the same paths fine because it uses `\\?\` long-path APIs. Fix needs both the registry flag `HKLM\SYSTEM\CurrentControlSet\Control\FileSystem\LongPathsEnabled = 1` AND a `longPathAware` manifest in the bundled exe (MKVToolNix v51+ has it). When this fails the cosmetic stats-tag step kills an otherwise-successful transcode via `failFlow`.
+
+**mkvpropedit "could not be opened for writing" → mass false "Transcode error" (Linux nodes).** The Save flow's `runMkvPropEdit` step (`--add-track-statistics-tags`, purely cosmetic, in-place on the `/media` file) had its `err1` edge wired straight to a `failFlow` ("Save File - MKVPropEdit Fail!"), so any tag-write failure turned a fully-successful encode into a hard `Transcode error` and discarded the encode → the file re-queued and failed again **forever** (deterministic, never self-clears, wastes a GPU encode each retry; ~1700 files piled up this way). **Root cause:** the Tdarr container runs as **root but WITHOUT `CAP_DAC_OVERRIDE`** (TrueNAS ix-app restricted securityContext; `CapEff=0xc9={CHOWN,FOWNER,SETGID,SETUID}`), so root obeys normal POSIX bits. Media files owned by a *foreign* uid at mode `0664` (we had ~14.9k owned by `jstewart:3000` while the node is root + group `568(apps)`) are "other" = `r--` → `open(O_RDWR)` → `EACCES`. Reproduced exactly: `chown 3000:3000 && chmod 0664` a scratch mkv → identical error; same binary on a writable file → exit 0. **Fix applied:** `chown`ed the `jstewart:3000` media → `apps:568` (node is in group 568, files are `0664`, so it can write them now). Durable alternatives: run the app as the media owner, or grant the container `CAP_DAC_OVERRIDE`. **Guard added** (commit `0c0af06`): the Input flow now has an up-front `customFunction` "Input File - Check Node Write Access" (`chkWrite01`) right after `Input File - Start` that opens the original `r+` (non-destructive) and fails fast via the existing "Fail Permissions or File Error" `failFlow` **before any encode** if the node can't write the original. (Catches ownership/permission writability only — NOT the Windows long-path bug above, since Node `fs` uses long-path APIs and passes where `mkvpropedit.exe` later fails.)
 
 **`fl_cq_filesize_ratio` size-cancel.** The `liveSizeCompare` gate cancels the encode if the projected output exceeds this percentage of the input. Set to `300` to allow AV1 to grow already-efficient sources — we want a homogeneous AV1 end state more than we want size savings on every file. Lowering this back to ~95 will resurrect false-positive "Transcode error" entries on Venom-class files (1080p h264/hevc → AV1 grows ~150-260%).
 
