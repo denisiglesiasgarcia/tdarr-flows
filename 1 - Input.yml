@@ -5,7 +5,7 @@
   "tags": "",
   "flowPlugins": [
     {
-      "name": "ℹ️ The Quality Setting VAAPI will use  \nScale: \n-compression_level=0 -> speed preset only.\n-compression_level=1 -> balanced preset with pre-encode and VBAQ enabled (hardcoded, recommended value by AMD).\n-compression_level=11 -> balanced preset with pre-encode enabled (2+8+1).\n-compression_level=19 -> balanced preset with VBAQ enabled (2+16+1).\n-compression_level=29 -> quality preset with pre-encode and VBAQ enabled (4+8+16+1).",
+      "name": "\u2139\ufe0f The Quality Setting VAAPI will use  \nScale: \n-compression_level=0 -> speed preset only.\n-compression_level=1 -> balanced preset with pre-encode and VBAQ enabled (hardcoded, recommended value by AMD).\n-compression_level=11 -> balanced preset with pre-encode enabled (2+8+1).\n-compression_level=19 -> balanced preset with VBAQ enabled (2+16+1).\n-compression_level=29 -> quality preset with pre-encode and VBAQ enabled (4+8+16+1).",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -17,7 +17,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Fine tuning of the VAAPI command",
+      "name": "\u2139\ufe0f Fine tuning of the VAAPI command",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -29,7 +29,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_vaapi_main🎯",
+      "name": "Input - Set Flow Variable fl_vaapi_main\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -45,7 +45,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Fine tuning of the AMF command",
+      "name": "\u2139\ufe0f Fine tuning of the AMF command",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -57,7 +57,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_vaapi_quality🎯",
+      "name": "Input - Set Flow Variable fl_vaapi_quality\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -73,7 +73,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Variables - Video Encoding Customize VAAPI ℹ️",
+      "name": "Variables - Video Encoding Customize VAAPI \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -85,7 +85,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ The Quality Setting AMF will use.\nScale:\nspeed\nbalanced\nquality",
+      "name": "\u2139\ufe0f The Quality Setting AMF will use.\nScale:\nspeed\nbalanced\nquality",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -97,7 +97,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_amf_main🎯",
+      "name": "Input - Set Flow Variable fl_amf_main\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -113,7 +113,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_amf_quality🎯",
+      "name": "Input - Set Flow Variable fl_amf_quality\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -129,7 +129,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Variables - Video Encoding Customize AMF (AMD) ℹ️",
+      "name": "Variables - Video Encoding Customize AMF (AMD) \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -141,7 +141,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ This is for cq encoding.  How often we query to check file size.  40 = 40 seconds",
+      "name": "\u2139\ufe0f This is for cq encoding.  How often we query to check file size.  40 = 40 seconds",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -153,7 +153,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_cq_filesize_ratio_time 🎯",
+      "name": "Input - Set Flow Variable fl_cq_filesize_ratio_time \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -169,7 +169,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ This is for the fallback cq encoding method.  We use Check Live Filesize to ensure the output is smaller than the input file.  Set as a percentage.  Where 85 = 85%.  85% would mean that the output file must be smaller than 85% of the original input file size.\nIf it's not, then cq encoding stops.",
+      "name": "\u2139\ufe0f This is for the fallback cq encoding method.  We use Check Live Filesize to ensure the output is smaller than the input file.  Set as a percentage.  Where 85 = 85%.  85% would mean that the output file must be smaller than 85% of the original input file size.\nIf it's not, then cq encoding stops.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -181,7 +181,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_cq_filesize_ratio🎯",
+      "name": "Input - Set Flow Variable fl_cq_filesize_ratio\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -197,7 +197,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ This is a place to add general ffmpeg flags that apply to all encoders",
+      "name": "\u2139\ufe0f This is a place to add general ffmpeg flags that apply to all encoders",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -209,7 +209,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Used to deinterlace .ts tv broadcasts.  Set to true or false",
+      "name": "\u2139\ufe0f Used to deinterlace .ts tv broadcasts.  Set to true or false",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -221,7 +221,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_ffmpeg_main 🎯",
+      "name": "Input - Set Flow Variable fl_ffmpeg_main \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -237,7 +237,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable do_deinterlace 🎯",
+      "name": "Input - Set Flow Variable do_deinterlace \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -253,7 +253,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_vid_other 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_vid_other \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -269,7 +269,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_4K 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_4K \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -285,7 +285,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_1440p🎯",
+      "name": "Sort & Tag - Set Flow Variable is_1440p\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -301,7 +301,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_1080p🎯",
+      "name": "Sort & Tag - Set Flow Variable is_1080p\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -317,7 +317,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_720p🎯",
+      "name": "Sort & Tag - Set Flow Variable is_720p\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -333,7 +333,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_576p 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_576p \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -349,7 +349,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_480p 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_480p \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -365,7 +365,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Tag for Resolution ℹ️",
+      "name": "Sort & Tag - Tag for Resolution \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -377,7 +377,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ The Quality Setting CPU (libsvtav1) will use. Scale: 0 (slowest/best quality) to 13 (fastest/lowest quality). Default: 6 (medium).",
+      "name": "\u2139\ufe0f The Quality Setting CPU (libsvthevc) will use. Scale: 0 (slowest/best quality) to 13 (fastest/lowest quality). Default: 6 (medium).",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -389,7 +389,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_cpu_main🎯",
+      "name": "Input - Set Flow Variable fl_cpu_main\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -405,7 +405,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Fine tuning of the CPU command (libsvtav1). fl_cpu_main is appended as extra args (e.g. -svtav1-params key=val). Leave empty for defaults.",
+      "name": "\u2139\ufe0f Fine tuning of the CPU command (libsvthevc). fl_cpu_main is appended as extra args (e.g. -svthevc-params key=val). Leave empty for defaults.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -417,13 +417,13 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_cpu_quality🎯",
+      "name": "Input - Set Flow Variable fl_cpu_quality (libx265)\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
       "inputsDB": {
         "variable": "fl_cpu_quality",
-        "value": "-preset 6"
+        "value": "-preset slow"
       },
       "id": "KtEhs8mRz",
       "position": {
@@ -433,7 +433,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Variables - Video Encoding Customize CPU libsvtav1 ℹ️",
+      "name": "Variables - Video Encoding Customize CPU libsvthevc \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -445,7 +445,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_hdr 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_hdr \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -461,7 +461,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - File is not HDR ℹ️",
+      "name": "Sort & Tag - File is not HDR \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -473,7 +473,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️\n- Treat as Beta software, do not run this on your main library\n- Encodes to AV1 (av1_nvenc/av1_qsv/av1_amf/av1_vaapi/libsvtav1)\n- Works with HDR. DV files are detected and video-copied as-is to preserve Dolby Vision metadata.",
+      "name": "\u2139\ufe0f\n- Treat as Beta software, do not run this on your main library\n- Encodes to HEVC (H.265) (hevc_nvenc/hevc_qsv/hevc_amf/hevc_vaapi/libx265)\n- Works with HDR. DV files are detected and video-copied as-is to preserve Dolby Vision metadata.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -485,7 +485,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Fine tuning of the QSV command",
+      "name": "\u2139\ufe0f Fine tuning of the QSV command",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -497,7 +497,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ The Quality Setting QSV will use.  Scale:\nveryfast, faster, fast, medium, slow, slower, veryslow",
+      "name": "\u2139\ufe0f The Quality Setting QSV will use.  Scale:\nveryfast, faster, fast, medium, slow, slower, veryslow",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -509,7 +509,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_qsv_quality🎯",
+      "name": "Input - Set Flow Variable fl_qsv_quality\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -525,7 +525,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_qsv_main🎯",
+      "name": "Input - Set Flow Variable fl_qsv_main\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -541,7 +541,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Variables - Video Encoding Customize QSV (intel) ℹ️",
+      "name": "Variables - Video Encoding Customize QSV (intel) \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -553,7 +553,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Fine tuning of the NVENC command",
+      "name": "\u2139\ufe0f Fine tuning of the NVENC command",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -565,7 +565,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_nvenc_main🎯",
+      "name": "Input - Set Flow Variable fl_nvenc_main\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -581,7 +581,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ The Quality Setting NVENC will use.  From a Scale of p1-p7, with p7 being the slowest and highest quality.",
+      "name": "\u2139\ufe0f The Quality Setting NVENC will use.  From a Scale of p1-p7, with p7 being the slowest and highest quality.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -593,7 +593,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_nvenc_quality 🎯",
+      "name": "Input - Set Flow Variable fl_nvenc_quality \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -609,13 +609,13 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_nvenc_b-frames🎯",
+      "name": "Input - Set Flow Variable fl_nvenc_b-frames\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
       "inputsDB": {
         "variable": "fl_nvenc_b-frames",
-        "value": ""
+        "value": "-bf 4"
       },
       "id": "2hKuMEpT1",
       "position": {
@@ -625,7 +625,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ B-frames are not supported by av1_nvenc. fl_nvenc_b-frames is kept for compatibility but must remain empty.",
+      "name": "\u2139\ufe0f B-frames are not supported by hevc_nvenc. fl_nvenc_b-frames is kept for compatibility but must remain empty.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -637,7 +637,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Variables - Video Encoding Customize NVENC ℹ️",
+      "name": "Variables - Video Encoding Customize NVENC \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -649,7 +649,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Used to re-order streams by the provided criteria.",
+      "name": "\u2139\ufe0f Used to re-order streams by the provided criteria.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -661,7 +661,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Loading User Configurable Variables ℹ️",
+      "name": "Loading User Configurable Variables \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -673,7 +673,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Variables - Reorder Streams ℹ️",
+      "name": "Variables - Reorder Streams \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -685,7 +685,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_reorder_streams_type🎯",
+      "name": "Input - Set Flow Variable fl_reorder_streams_type\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -701,7 +701,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_reorder_streams_codec🎯",
+      "name": "Input - Set Flow Variable fl_reorder_streams_codec\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -717,7 +717,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_reorder_streams_lang🎯",
+      "name": "Input - Set Flow Variable fl_reorder_streams_lang\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -733,7 +733,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_reorder_streams_channels 🎯",
+      "name": "Input - Set Flow Variable fl_reorder_streams_channels \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -749,7 +749,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_reorder_streams_order 🎯",
+      "name": "Input - Set Flow Variable fl_reorder_streams_order \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -765,7 +765,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Used to check if the file duration is too long, indicating an error with the encode.\n100.5 = 100.5%",
+      "name": "\u2139\ufe0f Used to check if the file duration is too long, indicating an error with the encode.\n100.5 = 100.5%",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -777,7 +777,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Used to check if the final file size is too large.  We generally don't want the files to end up larger.  Failure here could indicate encoding error or settings.\n100 = 100% = same file size as original\n105 = 105% = 5% larger than original",
+      "name": "\u2139\ufe0f Used to check if the final file size is too large.  We generally don't want the files to end up larger.  Failure here could indicate encoding error or settings.\n100 = 100% = same file size as original\n105 = 105% = 5% larger than original",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -789,7 +789,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Used to check if the file duration is too short, indicating a possible error with the flow.  The file must be at least 99.5% as the original.\n\n99.5 = 99.5%",
+      "name": "\u2139\ufe0f Used to check if the file duration is too short, indicating a possible error with the flow.  The file must be at least 99.5% as the original.\n\n99.5 = 99.5%",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -801,7 +801,7 @@
       "fpEnabled": true
     },
     {
-      "name": "File Input - Custom User Config set! ✅",
+      "name": "File Input - Custom User Config set! \u2705",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -813,7 +813,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_max_duration_limit 🎯",
+      "name": "Input - Set Flow Variable fl_max_duration_limit \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -829,7 +829,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_min_duration_limit 🎯",
+      "name": "Input - Set Flow Variable fl_min_duration_limit \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -845,7 +845,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Used to check if the file size is too large or too small. I use it to find out if there is an error with the encode.\n5 = 5%",
+      "name": "\u2139\ufe0f Used to check if the file size is too large or too small. I use it to find out if there is an error with the encode.\n5 = 5%",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -857,7 +857,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ ℹ️ ℹ️ ℹ️ USER CONFIGURABLE SECTION ℹ️ ℹ️ ℹ️ ℹ️\n\nHere are variables that are used later in the flow, so we have one central location to manage them, and you don't have to search the entire flow.",
+      "name": "\u2139\ufe0f \u2139\ufe0f \u2139\ufe0f \u2139\ufe0f USER CONFIGURABLE SECTION \u2139\ufe0f \u2139\ufe0f \u2139\ufe0f \u2139\ufe0f\n\nHere are variables that are used later in the flow, so we have one central location to manage them, and you don't have to search the entire flow.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -869,13 +869,13 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_max_size_limit 🎯",
+      "name": "Input - Set Flow Variable fl_max_size_limit \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
       "inputsDB": {
         "variable": "fl_max_size_limit",
-        "value": "300"
+        "value": "200"
       },
       "id": "J7dgGQ2DP",
       "position": {
@@ -885,7 +885,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ Goal of this flow is to id and tag things for easier recall later on",
+      "name": "\u2139\ufe0f Goal of this flow is to id and tag things for easier recall later on",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -897,7 +897,7 @@
       "fpEnabled": true
     },
     {
-      "name": "ℹ️ We look for extensions that aren't processed well, or need extra processing.  Tagging them here helps recall later in the flow.",
+      "name": "\u2139\ufe0f We look for extensions that aren't processed well, or need extra processing.  Tagging them here helps recall later in the flow.",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -909,7 +909,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Sorted & Tagged Done! ✅",
+      "name": "Sort & Tag - Sorted & Tagged Done! \u2705",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -921,7 +921,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - File is not ts ℹ️",
+      "name": "Sort & Tag - File is not ts \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -933,7 +933,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_ts 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_ts \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -949,7 +949,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Start 🚀",
+      "name": "Sort & Tag - Start \ud83d\ude80",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -961,7 +961,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - File is not avi ℹ️",
+      "name": "Sort & Tag - File is not avi \u2139\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -973,7 +973,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Check if ts 🔍",
+      "name": "Sort & Tag - Check if ts \ud83d\udd0d",
       "sourceRepo": "Community",
       "pluginName": "checkFileExtension",
       "version": "1.0.0",
@@ -988,7 +988,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input File - Start 📁",
+      "name": "Input File - Start \ud83d\udcc1",
       "sourceRepo": "Community",
       "pluginName": "inputFile",
       "version": "1.0.0",
@@ -1003,7 +1003,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input File - Check Node Write Access ⏳",
+      "name": "Input File - Check Node Write Access \u23f3",
       "sourceRepo": "Community",
       "pluginName": "customFunction",
       "version": "1.0.0",
@@ -1018,7 +1018,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input File - Fail Permissions or File Error 🚨🚨",
+      "name": "Input File - Fail Permissions or File Error \ud83d\udea8\ud83d\udea8",
       "sourceRepo": "Community",
       "pluginName": "failFlow",
       "version": "1.0.0",
@@ -1030,7 +1030,7 @@
       "fpEnabled": true
     },
     {
-      "name": "File Input - File Found! ✅",
+      "name": "File Input - File Found! \u2705",
       "sourceRepo": "Community",
       "pluginName": "comment",
       "version": "1.0.0",
@@ -1042,7 +1042,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Check if avi 🔍",
+      "name": "Sort & Tag - Check if avi \ud83d\udd0d",
       "sourceRepo": "Community",
       "pluginName": "checkFileExtension",
       "version": "1.0.0",
@@ -1057,7 +1057,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_avi 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_avi \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -1073,7 +1073,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Extensions that don't need tagging 🔍",
+      "name": "Sort & Tag - Extensions that don't need tagging \ud83d\udd0d",
       "sourceRepo": "Community",
       "pluginName": "checkFileExtension",
       "version": "1.0.0",
@@ -1085,7 +1085,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Go To Flow 2 Prep & Clean ➡️",
+      "name": "Sort & Tag - Go To Flow 2 Prep & Clean \u27a1\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "goToFlow",
       "version": "2.0.0",
@@ -1101,7 +1101,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Set Flow Variable fl_min_size_limit🎯",
+      "name": "Input - Set Flow Variable fl_min_size_limit\ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -1117,7 +1117,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Check HDR Video 🔍",
+      "name": "Sort & Tag - Check HDR Video \ud83d\udd0d",
       "sourceRepo": "Community",
       "pluginName": "checkHdr",
       "version": "1.0.0",
@@ -1141,7 +1141,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Detect Dolby Vision 🔍",
+      "name": "Sort & Tag - Detect Dolby Vision \ud83d\udd0d",
       "sourceRepo": "Community",
       "pluginName": "customFunction",
       "version": "1.0.0",
@@ -1156,7 +1156,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_dv = true 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_dv = true \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -1172,7 +1172,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Sort & Tag - Set Flow Variable is_dv = false 🎯",
+      "name": "Sort & Tag - Set Flow Variable is_dv = false \ud83c\udfaf",
       "sourceRepo": "Community",
       "pluginName": "setFlowVariable",
       "version": "1.0.0",
@@ -1188,7 +1188,7 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Skip Files ≤ 100 MB ⏭️",
+      "name": "Input - Skip Files \u2264 100 MB \u23ed\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "checkFileSize",
       "version": "1.0.0",
@@ -1205,12 +1205,12 @@
       "fpEnabled": true
     },
     {
-      "name": "Input - Skip DV / 4K (leave as-is, frees fleet) ⏭️",
+      "name": "Input - Skip DV / TS files (leave as-is) \u23ed\ufe0f",
       "sourceRepo": "Community",
       "pluginName": "customFunction",
       "version": "1.0.0",
       "inputsDB": {
-        "code": "module.exports = async (args) => { const obj = args.inputFileObj || {}; const f = String(obj.file || obj._id || '').toLowerCase(); const fpd = JSON.stringify(obj.ffProbeData || {}).toLowerCase(); const dvFile = ['[dv ','[dv]','[dv-','dolby vision','dv hdr','dovi','dvhe','dvh1'].some(function(k){return f.includes(k);}); const dvProbe = ['dovi','dolby vision','dvhe','dvh1','dv_profile','dovi configuration'].some(function(k){return fpd.includes(k);}); const isDV = dvFile || dvProbe; const res = String(obj.video_resolution || '').toLowerCase(); let w=0,h=0; const streams=((obj.ffProbeData||{}).streams)||[]; const realVid=[]; for (const s of streams){ if(s.codec_type==='video'){ const ap=(s.disposition&&s.disposition.attached_pic)?1:0; const isImg=['png','mjpeg','mjpegb','bmp','gif'].indexOf(String(s.codec_name||'').toLowerCase())>=0; if(!ap&&!isImg){ realVid.push(s); if((s.width||0)>w)w=s.width; if((s.height||0)>h)h=s.height; } } } const is4K = res==='4kuhd' || res==='dci4k' || w>=3840 || h>=2160; const isTS = f.endsWith('.ts'); const noVideo = realVid.length===0; const isAV1 = realVid.length>0 && realVid.every(function(s){return String(s.codec_name||'').toLowerCase()==='av1';}); const skip = isDV || is4K || isTS || noVideo || isAV1; args.jobLog('skipDV4K: skip='+skip+' isDV='+isDV+' is4K='+is4K+' isTS='+isTS+' noVideo='+noVideo+' isAV1='+isAV1+' res='+res+' w='+w); return { outputFileObj: args.inputFileObj, outputNumber: skip ? 1 : 2, variables: args.variables };};"
+        "code": "module.exports = async (args) => { const obj = args.inputFileObj || {}; const f = String(obj.file || obj._id || '').toLowerCase(); const fpd = JSON.stringify(obj.ffProbeData || {}).toLowerCase(); const dvFile = ['[dv ','[dv]','[dv-','dolby vision','dv hdr','dovi','dvhe','dvh1'].some(function(k){return f.includes(k);}); const dvProbe = ['dovi','dolby vision','dvhe','dvh1','dv_profile','dovi configuration'].some(function(k){return fpd.includes(k);}); const isDV = dvFile || dvProbe; const isTS = f.endsWith('.ts'); const streams=((obj.ffProbeData||{}).streams)||[]; const realVid=[]; for (const s of streams){   if(s.codec_type==='video'){     const ap=(s.disposition&&s.disposition.attached_pic)?1:0;     const isImg=['png','mjpeg','mjpegb','bmp','gif'].indexOf(String(s.codec_name||'').toLowerCase())>=0;     if(!ap&&!isImg){ realVid.push(s); }   } } const noVideo = realVid.length===0; const skip = isDV || isTS || noVideo; args.jobLog('skipDVTS: skip='+skip+' isDV='+isDV+' isTS='+isTS+' noVideo='+noVideo); return { outputFileObj: args.inputFileObj, outputNumber: skip ? 1 : 2, variables: args.variables };};"
       },
       "id": "skipDV4K01",
       "position": {
